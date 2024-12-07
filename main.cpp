@@ -1,4 +1,5 @@
 #include <iostream>
+#include "aggregationa.h"
 #include "assosiationa.h"
 
 using namespace std;
@@ -26,6 +27,7 @@ int main()
 
     // Part 2
     cout << "part 2:" << endl << endl;
+
     ClassB objB;
     objB.setInfo("Olion B asettama info");
 
@@ -37,5 +39,20 @@ int main()
     cout << "Assosiaatio esimerkki:" << endl;
     cout << "objB: " << objB.getInfo() << endl;
     cout << "objAss: " << objAss.getBinfo() << endl;
+
+    // Part 3
+    cout << "Part 3" << endl << endl;
+
+    cout << "Aggregaatio esimerkki:" << endl;
+    ClassB &refB = objB;
+    AggregationA objAggr(refB);
+    // objAggr takes reference to refB.
+    objAggr.setBinfo("Olion Agr asettama info");
+    // As such, information in objB is changed as the underlying object is the same.
+
+    cout << "objB: " << objB.getInfo() << endl;
+    cout << "objAggr " << objAggr.getBinfo() << endl;
+    cout << endl;
+
     return 0;
 }
