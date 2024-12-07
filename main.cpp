@@ -1,4 +1,5 @@
 #include <iostream>
+#include "assosiationa.h"
 
 using namespace std;
 
@@ -22,5 +23,19 @@ int main()
     cout << "Pointterin osoittama osoite on : " << &refA << endl;
     cout << "Pointterin osoittaman muistipaikan arvo on: " << refA << endl << endl;
 
+
+    // Part 2
+    cout << "part 2:" << endl << endl;
+    ClassB objB;
+    objB.setInfo("Olion B asettama info");
+
+    AssosiationA objAss(objB);
+    // objAss contains a copy of objB
+    objAss.setBinfo("Olion objAss asettama info");
+    // as original objB and ObjAss's versions are not linked, there is no change in objB
+
+    cout << "Assosiaatio esimerkki:" << endl;
+    cout << "objB: " << objB.getInfo() << endl;
+    cout << "objAss: " << objAss.getBinfo() << endl;
     return 0;
 }
